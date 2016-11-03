@@ -7,7 +7,7 @@ toc_order: 2
 
 ## How do I get started with Kontena?
 
-We recommend you start with our [quick start](getting-started/quick-start.md) guide.
+We recommend that you start with our [quick start](getting-started/quick-start.md) guide.
 
 ## What makes Kontena special?
 
