@@ -21,7 +21,7 @@ Kontena is administered via the Kontena command line interface, **Kontena CLI**.
 
 ## Learn More
 
-> If you are new to Kontena, we recommend that you first read through the [quick start](getting-started/quick-start.md) guide.
+If you are new to Kontena, we recommend that you first read through the [quick start](getting-started/quick-start.md) guide.
 
 This documentation is a work in progress. Any feedback and requests are welcome. If you feel like something is
 missing, please [open an issue](https://github.com/kontena/kontena/issues) on GitHub.
