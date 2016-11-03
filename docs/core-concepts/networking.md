@@ -6,31 +6,31 @@ toc_order: 2
 
 # Network Model
 
-Kontena's network model is based on the [Grid](#grid), spanning a set of [Host Nodes](#host-node).
-The Grid uses an [Overlay Network](#overlay-network) to provide connectivity between [Service Containers](#service-containers) on different Nodes.
+Kontena's network model is based on the [Grid](#grid), which spans a set of [Host Nodes](#host-node).
+The Grid uses an [Overlay Network](#overlay-network) to provide connectivity between [Service Containers](#service-containers) running on different Nodes.
 
 Each host Node is a separate virtual machine, which can have some combination of [Public](#public-network-address) and [Private](#private-network-address) network addresses.
 Nodes within the same region can communicate using their Private network address.
 The Public network address can be used to access network services exposed by the Node.
 
-Each Grid has a single [Overlay Network](#overlay-network) using private RFC1918 address space.
+Each Grid has a single [Overlay Network](#overlay-network) using a private RFC1918 address space.
 The Kontena Agent establishes the Overlay Network mesh between the Nodes.
 Nodes and Containers are connected to the overlay network.
 Each [Node](#overlay-network-address) and [Service Container](#weave-overlay-network) can use their respective overlay network addresess to communicate within the Grid.
-The Grid network also provides [DNS Service Discovery](#dns-service-discovery) for all Services and Service Containers overlay network addresses using the `kontena.local` domain.
+The Grid network also provides [DNS Service Discovery](#dns-service-discovery) for the overlay network addresses of all Services and Service Containers using the `kontena.local` domain.
 
 Each host Node runs the Kontena **Agent**, which establishes a WebSocket connection to a **Master** node running the Kontena **Server**.
 The host Node's Kontena Agent and the Master node are only used for cluster management. The Master node is not connected to the Grid, and Containers attached to the Grid cannot communicate with the Kontena Master.
 The Master Node does not expose any network services other than the HTTP API used by the CLI and Agent.
 
 While a Kontena master can manage multiple Grids, each Grid is an isolated overlay network with its own address space.
-Nodes and Containers attached to different Grids cannot communicate.
+Nodes and Containers attached to different Grids cannot communicate with each other.
 
 ## Grid
 
-Each grid has a single overlay network. The default overlay network used is `10.81.0.0/19`, and it currently cannot be configured at creation time nor changed later.
+Each Grid has a single overlay network. The default overlay network used is `10.81.0.0/19`, and it currently cannot be configured at creation time or changed later.
 
-Each Grid may also include a set of Trusted Subnets, which are used for the Overlay Networking described further below.
+Each Grid may also include a set of Trusted Subnets, which are used for the Overlay Networking described below.
 
 ### IP Address Management
 
@@ -45,8 +45,8 @@ In case of a conflict where the overlay network address has been reallocated for
 
 ## Host Node
 
-A host Node is a (physical or virtual) machine running the Docker Engine and Kontena Agent.
-The Kontena Agent runs as a Docker container, and controls the Docker Engine to manage infrastructure Containers and Service Containers.
+A host Node is a physical or virtual machine running the Docker Engine and Kontena Agent.
+The Kontena Agent runs as a Docker container and controls the Docker Engine to manage infrastructure Containers and Service Containers.
 
 ### Node Network Addresses
 Each host Node has a total of four different network addresses:
@@ -57,9 +57,9 @@ Each host Node has a total of four different network addresses:
 
   The public network address is resolved at startup using the `http://whatismyip.akamai.com` service, or it can be configured using `KONTENA_PUBLIC_IP`.
 
-  The Node's public addess can be used to connect to network services exposed on that host Node, including ports published by any Kontena Service Container that has been scheduled to run on that Node, including any instance of the Kontena Load Balancer.
+  The Node's public addess can be used to connect to network services exposed on that host Node. These include ports published by any Kontena Service Container that has been scheduled to run on that Node, including any instance of the Kontena Load Balancer.
   The Node's public address is also used for the Weave control and data plane connections between Nodes.
-  The Weave control and data plane ports are the only publically exposed services on a host Node in the default configuration.
+  The Weave control and data plane ports are the only publically exposed services on a host Node under the default Kontena configuration.
 
   For a node behind NAT, such as a Vagrant node, the public address may not necessarily work for incoming connections.
 
@@ -67,16 +67,16 @@ Each host Node has a total of four different network addresses:
 
   The internal network address of the machine (`private_ip`)
 
-  The private network address is resolved using the interface address configured on the internal interface, or it can be configured using `KONTENA_PRIVATE_IP`.
+  The private network address is resolved using the interface address configured on the internal interface. Alternatively, it can be configured using `KONTENA_PRIVATE_IP`.
   The internal interface is `eth1`, or the interface given by `KONTENA_PEER_INTERFACE`.
   If the internal interface does not exist, the address on the `eth0` interface is used.
 
   The private network address is used for the Weave control and data plane communication between nodes within the same region.
-  Nodes are within the same region if they have been configured with the same Docker Engine `region=` label.
+  Nodes exist within the same region if they have been configured with the same Docker Engine `region=` label.
   The `region=` label is a string value provided by the provisioning plugin.
 
   The private network address can also be used for connections to published services on internal nodes within a local network.
-  Using the private network address is required for local Vagrant nodes, as the public network address provided by VirtualBox does not allow any incoming connections.
+  Using the private network address is required for local Vagrant nodes, since the public network address provided by VirtualBox does not allow any incoming connections.
 
 #### Overlay Network Address
   The overlay network address (`10.81.0.x/19`)
