@@ -50,4 +50,6 @@ Kontena uses MongoDB to provide persistent storage for the Master daemon. We cho
 
 ## cAdvisor
 
-> cAdvisor (Container Advisor) provides container users with an understanding of the resource usage and performance characteristics of their running containers.
+> cAdvisor (Container Advisor) is a container monitoring tool.
+
+cAdvisor provides container users with an understanding of the resource usage and performance characteristics of their running containers.
