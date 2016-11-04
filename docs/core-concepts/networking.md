@@ -79,7 +79,7 @@ Each host Node has a total of four different network addresses:
   Using the private network address is required for local Vagrant nodes, since the public network address provided by VirtualBox does not allow any incoming connections.
 
 #### Overlay Network Address
-  The overlay network address (`10.81.0.x/19`)
+  The overlay network subnet is (`10.81.0.x/19`).
 
   Each Host Node within a Grid is assigned a sequential Node Number, in the range of `1..254`.
 
@@ -92,14 +92,14 @@ Each host Node has a total of four different network addresses:
 
 #### Docker Gateway Address
 
-  The Docker gateway address (`172.17.0.1` on `docker0`)
+  The Docker gateway address is (`172.17.0.1` on `docker0`)
 
   Each Host Node uses the Docker default bridge network to provide Containers with access to the internal network.
 
-  The Docker gateway address is a also used as the DNS resolver for the Containers, provided by Weave DNS.
+  The Docker gateway address also serves as the DNS resolver for the Containers, powered by Weave DNS.
 
 ### Node Infrastructure Services
-Each host Node runs a number of infrastructure services as Docker containers, using the host network namespace.
+Each host Node runs a number of infrastructure services as Docker containers, using the host network namespace. Networking details are as follows:
 
 | Service   | Protocol | Port | Addresses                 | Description
 |-----------|----------|------|---------------------------|-----------------------
@@ -110,41 +110,39 @@ Each host Node runs a number of infrastructure services as Docker containers, us
 | Weave Net | UDP      | 6783 | `*`                       | Weave Net Data (`sleeve`)
 | Weave Net | UDP      | 6784 | `*`                       | Weave Net Data (`fastdp`)
 
-Only the Weave Net service is externally accessible by default, which is required for forming the encrypted Overlay Network mesh between host Nodes.
+Only the Weave Net service is externally accessible by default. This is required for forming the encrypted Overlay Network mesh between host Nodes.
 
 ## Overlay Network
 
 At startup, the Kontena Agent establishes the overlay network mesh between the Grid's Nodes.
-The overlay network mesh is used to bootstrap the Grid infrastructure, as the host Node's overlay network address is used for infrastructure services such as etcd.
+The overlay network mesh is used to bootstrap the Grid infrastructure. The host Node's overlay network address is used for infrastructure services such as etcd.
 
 The overlay network is established using the network addresses of the peer Nodes within the Grid, which the Agent receives from the Master at startup.
-The overlay network mesh uses the Private network address of a peer node within the same Region, otherwise the Public network address is used.
+The overlay network mesh uses the Private network address of a peer node within the same Region; otherwise, the Public network address is used.
 Once the overlay network is started, the host Node's overlay network address is configured using [`weave expose`](https://www.weave.works/docs/net/latest/using-weave/host-network-integration/).
 
 The overlay network is powered by Weave Net, using [Weave's encrypted `sleeve` tunnels](https://www.weave.works/docs/net/latest/using-weave/security-untrusted-networks/) to form a flat Layer 2 network spanning all Grid Nodes and connected Containers.
 
 Alternatively, [Weave's Fast Datapath](https://www.weave.works/docs/net/latest/using-weave/fastdp/) can be used for traffic between Nodes within the Kontena Grid's [Trusted Subnets](https://kontena.io/docs/using-kontena/grids#grid-trusted-subnets).
-Using Trusted Subnets and Weave's Fast Datapath provides [improved performance](https://www.weave.works/weave-docker-networking-performance-fast-data-path/) at the cost of a lack of data plane encryption between Nodes.
+Using Trusted Subnets and Weave's Fast Datapath provides [improved performance](https://www.weave.works/weave-docker-networking-performance-fast-data-path/). The cost of this method is a lack of data plane encryption between Nodes.
 
 ## Service Containers
 
-Each Service Container has two
 Any exposed ports on any Service Container will automatically be internally accessible from other host Nodes and Service Containers within the Grid overlay network.
 
 #### Default Docker Network
 
 The Service Containers are created using the default Docker bridge network, which provides each Container with an isolated network namespace.
 The default Docker bridge network is used to provide the Container with a default route for connecting to external services, using SNAT on the host machine.
-The default Docker bridge network is local to each Node, and Containers on different nodes will use the same default Docker bridge network `172.42.17.X/24` subnet on each Container's default `eth0` interface.
+The default Docker bridge network is local to each Node, and Containers on different nodes will use the same default Docker bridge network subnet of `172.42.17.X/24` on each Container's default `eth0` interface.
 
 The default Docker network provides connectivity to the [Gateway](#docker-gateway-address) address of each host Node, which is used as the [DNS](#dns-service-discovery) resolver.
 
 #### Weave Overlay Network
 
-Each Service Container being started is also attached to the Weave network.
+Each Service Container, once started, is also attached to the Weave network.
 The Container's `ethwe` network interface is used for the internal communication between Grid Services, using the Overlay Network's `10.81.0.0/17` subnet.
-In order to avoid any issues with Container services attempting to resolve or connect to other services on the overlay network, the `weavewait` utility is used to delay the Container service execution until the Container's Weave network is ready.
-This uses a modified Docker entrypoint for the Container.
+In order to avoid any issues with Container services attempting to resolve or connect to other services on the overlay network, the `weavewait` utility is used to delay the Container service execution until the Container's Weave network is ready. This procedure uses a modified Docker entrypoint for the Container.
 
 
 ## Publishing Services
@@ -173,16 +171,16 @@ The [implementation](https://github.com/kontena/kontena-loadbalancer) of the Kon
 
 ## DNS Service Discovery
 
-Each Kontena Grid uses Weave DNS for dynamic service discovery of other service containers within the same grid.
+Each Kontena Grid uses Weave DNS for dynamic service discovery of other Service Containers within the same Grid.
 Each Service Container is configured with the `kontena.local` search domain, using the local node's `docker0` IP as the DNS resolver.
 Within the internal `kontena.local` DNS namespace, each Service Container is registered for both the per-`$container` and per-`$service` names under both the `kontena.local` and `$grid.kontena.local` names.
 
 Applications should be configured using either the short `$service` DNS names resolvable within Service Containers, or using the fully qualified `$service.$grid.kontena.local` names.
-This is related to the use of the Kontena VPN service with multiple grids, and being able to resolve the service names within each such grid.
+This is related to the use of the Kontena VPN service with multiple Grids, and the resolution of the service names within each Grid.
 The Kontena [Image Registry](https://kontena.io/docs/using-kontena/image-registry) also uses image names of the form `registry.$grid.kontena.local/myimage`.
 The older `$service.kontena.local` names are retained for backwards-compatibility with existing configurations.
 
-Consider the resulting DNS namespace for an example Grid named `testgrid`, with an `testapp/kontena.yml` with 2 instances of service `webservice` and 1 instance of service `db`.
+Consider the resulting DNS namespace for an example Grid named `testgrid`, with a `testapp/kontena.yml` with 2 instances of service `webservice` and 1 instance of service `db`.
 
 Each of the three containers would have a pair of container names resolving to an internal Grid IP address:
 
