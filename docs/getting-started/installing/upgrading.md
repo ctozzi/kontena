@@ -4,9 +4,9 @@ title: Upgrading
 
 # Upgrading Kontena from Previous Versions
 
-Upgrading Kontena is easy. Usually it's enough to just update Kontena Master
-and the nodes will follow automatically (if an upgrade is required). Cli updates
-can be installed via rubygems.
+Upgrading Kontena is easy. In most cases, it is sufficient to update just the Kontena Mastern
+and the Nodes will be automatically updated. CLI updates
+can be installed via Rubygems.
 
 ## Versions
 
@@ -23,14 +23,14 @@ can be installed via rubygems.
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli
@@ -41,21 +41,21 @@ $ gem install kontena-cli
 
 ** Migration steps **
 
-Kontena Master is using oauth2 based authentication starting from 0.16 release. When migrating to this release the new oauth2 setting have to be created for the master. This can be done with following steps after master is updated:
-- update cli to 0.16
-- login to Kontena Cloud by issuing `kontena cloud login`
+Starting with the Kontena 0.16 release, Kontena Master uses OAuth2-based authentication. When migrating to this release the new OAuth2 setting must be created for the Master. This can be done with the following steps after the Master is updated:
+- update CLI to 0.16
+- log in to Kontena Cloud by issuing `kontena cloud login`
   - For this you need an account in [Kontena Cloud](https://cloud.kontena.io)
-  - Use the same email as you've been using previously with Kontena to allow smooth transition to new oauth2 based authentication.
-- Run `kontena master init-cloud` that will automatically configure your master to use new oauth2 mechanism.
+  - Use the same email address that you have been using previously with Kontena to allow a smooth transition to new OAuth2-based authentication.
+- Run `kontena master init-cloud`. This will automatically configure your Master to use new OAuth2 mechanism.
   > After this:
   > * Users will not be able to reauthenticate without authorizing the
   > Master to access their Kontena Cloud user information
-  > * Users that have registered a different email address to Kontena
+  > * Users that have registered a different email address on Kontena
   > Cloud than the one they currently have as their username in the
-  > master will not be able to authenticate before an administrator
+  > Master will not be able to authenticate until an administrator
   > of the Kontena Master creates an invitation code for them.
 
-- If you or other users are using different email than previously you have to invite them to use the master:
+- If you or other users are using a different email address than the one you used previously, you have to invite the new address to use the Master:
   `kontena master users invite john.doe@example.com`
 
 
@@ -63,34 +63,34 @@ Kontena Master is using oauth2 based authentication starting from 0.16 release. 
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli
 ```
 
 ** Custom Installs**
-- update master, agent and cli to 0.15
+- update Master, agent and CLI to 0.15
 
 ### Upgrading from 0.13 to 0.14
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli
