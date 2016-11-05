@@ -15,9 +15,9 @@ title: Docker Compose
 
 ## Installing Kontena Master
 
-Kontena Master is an orchestrator component that manages Kontena Grids/Nodes. Installing Kontena Master using Docker Compose can be done with the following steps:
+Kontena Master is an orchestrator component that manages Kontena Grids/Nodes. Installing Kontena Master using Docker Compose can be accomplished via the following steps:
 
-**Step 1:** create `docker-compose.yml` file with the following contents:
+**Step 1:** create a `docker-compose.yml` file with the following contents:
 
 ```
 version: '2'
@@ -63,7 +63,7 @@ $ cat /dev/urandom | LC_ALL=C tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1
 $ awk 1 ORS='\\n' /path/to/cert_file
 ```
 
-If you don't have a SSL certificate you can generate a self-signed certificate and use that:
+If you don't have an SSL certificate, you can generate a self-signed certificate with:
 ```
 $ openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt
 cat certificate.crt privateKey.key > cert.pem
@@ -71,25 +71,25 @@ cat certificate.crt privateKey.key > cert.pem
 
 **Step 2:** Run the command `docker-compose up -d`
 
-After Kontena Master has started you can authenticate as the Kontena Master internal administrator using the `INITIAL_ADMIN_CODE` you provided. Refer to [authetication](../../using-kontena/authentication.md) how to login with the admin code and how to configure [Kontena Cloud](https://cloud.kontena.io) as the authentication provider.
+After Kontena Master has started you can authenticate as the Kontena Master internal administrator using the `INITIAL_ADMIN_CODE` you provided. Refer to [authetication](../../using-kontena/authentication.md) for information on logging in with the admin code and how to configure [Kontena Cloud](https://cloud.kontena.io) as the authentication provider.
 
 ## Installing Kontena Nodes
 
-Before you can start provisioning nodes you must first switch cli scope to a grid. A Grid can be thought of as a cluster of nodes that can have members from multiple clouds and/or regions.
+Before you can start provisioning nodes you must first switch the CLI scope to a Grid. A Grid can be thought of as a cluster of nodes that can have members from multiple clouds and/or regions.
 
-Create a new grid using the command:
+Create a new Grid using the command:
 
 ```
 $ kontena grid create --initial-size=<initial_size> my-grid
 ```
 
-Or switch to an existing grid using the following command:
+Or switch to an existing Grid using the following command:
 
 ```
 $ kontena grid use <grid_name>
 ```
 
-> The recommended minimum initial-size is 3. This means the minimum number of nodes in a grid is 3.
+> The recommended minimum initial-size is three. This means the minimum number of Nodes in a Grid is three.
 
 Now you can start provisioning nodes to your host machines.
 
@@ -114,9 +114,9 @@ agent:
 
 **Step 2:** Run the command `docker-compose up -d`
 
-To allow Kontena agent to pull from Kontena's built-in private image registry you must add `--insecure-registry="10.81.0.0/19"` to Docker daemon options on the host machine.
+To allow the Kontena agent to pull from Kontena's built-in private image registry, you must add `--insecure-registry="10.81.0.0/19"` to the Docker daemon options on the host machine.
 
-**Note!** While Kontena works ok even with just a single Kontena Node, it is recommended to have at least 3 Kontena Nodes provisioned in a Grid.
+**Note!** While Kontena will work with just a single Kontena Node, it is recommended to have at least three Kontena Nodes provisioned in a Grid.
 
 After creating nodes, you can verify that they have joined a Grid:
 
