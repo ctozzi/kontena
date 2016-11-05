@@ -40,7 +40,7 @@ After Kontena Master has provisioned, you will be automatically authenticated as
 
 ## Installing Kontena Nodes
 
-Before you can start provisioning nodes you must first switch the CLI scope to a Grid. A Grid can be thought of as a cluster of nodes that can have members from multiple clouds and/or regions.
+Before you can start provisioning Nodes you must first switch the CLI scope to a Grid. A Grid can be thought of as a cluster of Nodes that can have members from multiple clouds and/or regions.
 
 Switch to an existing Grid using the following command:
 
