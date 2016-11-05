@@ -37,7 +37,7 @@ $ gem install kontena-cli
 ```
 
 ** Custom Installs**
-- update master, agent and cli to 0.16
+- update Master, agent and CLI to 0.16
 
 ** Migration steps **
 
@@ -97,67 +97,67 @@ $ gem install kontena-cli
 ```
 
 ** Custom Installs**
-- update master, agent and cli to 0.14
+- update Master, agent and CLI to 0.14
 
 
 ### Upgrading from 0.12 to 0.13
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli
 ```
 
 ** Custom Installs**
-- update master, agent and cli to 0.13
+- update Master, agent and CLI to 0.13
 
 ### Upgrading from 0.11 to 0.12
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli:0.12
 ```
 
 ** Custom Installs**
-- update master, agent and cli to 0.12
+- update Master, agent and CLI to 0.12
 
 ### Upgrading from 0.10 to 0.11
 
 ** Official Installation Method**
 
-- restart master:
+- restart Master:
 
 ```
 $ sudo systemctl restart kontena-server-api
 $ sudo systemctl restart kontena-server-haproxy
 ```
 
-- update cli:
+- update CLI:
 
 ```
 $ gem install kontena-cli:0.12
 ```
 
-- to enable Kontena Vault, set `VAULT_KEY` and `VAULT_IV` env variables to master:
+- to enable Kontena Vault, set `VAULT_KEY` and `VAULT_IV` env variables to Master:
 
 ```
 $ sudo vim /etc/systemd/system/kontena-server-api.service.d/vault.conf
@@ -178,7 +178,7 @@ $ cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 64 | head -n 1
 
 ** Custom Installs**
 - update master & agent containers to 0.11
-- to enable Kontena Vault, set `VAULT_KEY` & `VAULT_IV` env variables to master
+- to enable Kontena Vault, set `VAULT_KEY` & `VAULT_IV` env variables to Master
 
 ### Upgrading from 0.9 to 0.10
 
