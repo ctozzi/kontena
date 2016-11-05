@@ -12,7 +12,7 @@ Each Service instance is automatically registered in the Kontena Grid distribute
 
 ## Service High Availability
 
-Kontena monitors the state of each Service instance and actively manages it to ensure the desired state of the Service. Action is triggered when there are fewer healthy instances than the desired scale of your Service, when a node becomes unavailable or when a service instance fails.
+Kontena monitors the state of each Service instance and actively manages it to ensure the desired state of the Service. Action is triggered when there are fewer healthy instances than the desired scale of your Service, when a node becomes unavailable or when a Service instance fails.
 
 ## Using Services
 
