@@ -7,7 +7,7 @@ toc_order: 1
 
 [Kontena](http://www.kontena.io) is an open source project for orchestrating and running containerized workloads on a cluster. The Kontena system is comprised of a number of **Kontena Nodes** (meaning servers or virtual machines that run containerized workloads) and a **Kontena Master** (which controls and monitors the Nodes).
 
-With Kontena, you can describe your application with the **Kontena Service** definition. A Service definition describes the container image, networking, scaling and stateful/stateless attributes of your application. Services may be linked together to create the desired architecture. Each service is automatically assigned an internal DNS address, which can be used inside your application for inter-Service communications.
+With Kontena, you can construct your application using the **Kontena Service** definition. A Service definition describes the container image, networking, scaling and stateful/stateless attributes of your application. Services may be linked together to create the desired architecture. Each service is automatically assigned an internal DNS address, which can be used inside your application for inter-Service communications.
 
 Kontena's key features include:
 * Scheduler with affinity filtering
