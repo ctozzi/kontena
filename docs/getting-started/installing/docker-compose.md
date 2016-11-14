@@ -11,7 +11,8 @@ title: Docker Compose
 ## Prerequisities
 
 - [Kontena CLI](cli)
-- Docker Engine (<= 1.10 ) & Docker Compose
+- Docker Engine version 1.10 or later
+- Docker Compose
 
 ## Installing Kontena Master
 
