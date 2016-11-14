@@ -4,11 +4,11 @@ title: CoreOS
 
 # CoreOS Install
 
-- [Prerequisities](coreos#prerequisities)
+- [Prerequisites](coreos#prerequisites)
 - [Installing Kontena Master](coreos#installing-kontena-master)
 - [Installing Kontena Nodes](coreos#installing-kontena-nodes)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 
