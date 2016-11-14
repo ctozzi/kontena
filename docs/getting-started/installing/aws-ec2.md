@@ -4,13 +4,13 @@ title: AWS EC2
 
 # Running Kontena on AWS EC2
 
-- [Prerequisities](aws-ec2#prerequisities)
+- [Prerequisites](aws-ec2#prerequisites)
 - [Installing AWS Plugin](aws-ec2#installing-kontena-aws-plugin)
 - [Installing Kontena Master](aws-ec2#installing-kontena-master)
 - [Installing Kontena Nodes](aws-ec2#installing-kontena-nodes)
 - [AWS Plugin Command Reference](aws-ec2#aws-plugin-command-reference)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - AWS Account. Visit [http://aws.amazon.com](http://aws.amazon.com) to get started
