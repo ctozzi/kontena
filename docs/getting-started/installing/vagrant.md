@@ -4,13 +4,13 @@ title: Vagrant
 
 # Running Kontena on Vagrant
 
-- [Prerequisities](vagrant#prerequisities)
+- [Prerequisites](vagrant#prerequisites)
 - [Installing Vagrant Plugin](vagrant#installing-kontena-vagrant-plugin)
 - [Installing Kontena Master](vagrant#installing-kontena-master)
 - [Installing Kontena Nodes](vagrant#installing-kontena-nodes)
 - [Vagrant Plugin Command Reference](vagrant#vagrant-plugin-command-reference)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - Vagrant 1.6 or later. Visit [https://www.vagrantup.com/](https://www.vagrantup.com/) to get started
