@@ -4,13 +4,13 @@ title: UpCloud
 
 # Running Kontena on UpCloud
 
-- [Prerequisities](upcloud#prerequisities)
+- [Prerequisites](upcloud#prerequisites)
 - [Installing UpCloud Plugin](upcloud#installing-kontena-upcloud-plugin)
 - [Installing Kontena Master](upcloud#installing-kontena-master)
 - [Installing Kontena Nodes](upcloud#installing-kontena-nodes)
 - [UpCloud Plugin Command Reference](upcloud#upcloud-plugin-command-reference)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - UpCloud Account. Visit [https://www.upcloud.com/kontena/](https://www.upcloud.com/kontena/) to get started
