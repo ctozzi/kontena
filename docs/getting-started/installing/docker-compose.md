@@ -4,11 +4,11 @@ title: Docker Compose
 
 # Running Kontena using Docker Compose
 
-- [Prerequisities](docker-compose#prerequisities)
+- [Prerequisites](docker-compose#prerequisites)
 - [Installing Kontena Master](docker-compose#installing-kontena-master)
 - [Installing Kontena Nodes](docker-compose#installing-kontena-nodes)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - Docker Engine version 1.10 or later
