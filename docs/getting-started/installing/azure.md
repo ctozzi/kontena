@@ -10,7 +10,7 @@ title: Azure
 - [Installing Kontena Nodes](azure#installing-kontena-nodes)
 - [Azure Plugin Command Reference](azure#azure-plugin-command-reference)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - Azure Account
