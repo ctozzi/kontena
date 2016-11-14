@@ -4,13 +4,13 @@ title: Packet
 
 # Running Kontena on Packet
 
-- [Prerequisities](packet#prerequisities)
+- [Prerequisites](packet#prerequisites)
 - [Installing Packet Plugin](packet#installing-kontena-packet-plugin)
 - [Installing Kontena Master](packet#installing-kontena-master)
 - [Installing Kontena Nodes](packet#installing-kontena-nodes)
 - [Packet Command Reference](packet#packet-command-reference)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 - Packet.net Account. Visit [https://www.packet.net/promo/kontena/](https://www.packet.net/promo/kontena/) to get started
