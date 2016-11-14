@@ -4,11 +4,11 @@ title: Ubuntu
 
 # Running Kontena on Ubuntu
 
-- [Prerequisities](ubuntu#prerequisities)
+- [Prerequisites](ubuntu#prerequisites)
 - [Installing Kontena Master](ubuntu#installing-kontena-master)
 - [Installing Kontena Nodes](ubuntu#installing-kontena-nodes)
 
-## Prerequisities
+## Prerequisites
 
 - [Kontena CLI](cli)
 
