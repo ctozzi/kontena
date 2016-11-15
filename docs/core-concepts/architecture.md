@@ -7,7 +7,7 @@ toc_order: 1
 
 Kontena is an open-source system for deploying, managing, scaling and monitoring containerized applications across multiple hosts on any cloud infrastructure. It is primarily designed for running applications composed of multiple containers, such as elastic, distributed micro-services.
 
-With Kontena, the user starts by telling the Kontena system to run a Service that is composed of one or more containers. The Kontena system will then automatically choose the host or number of hosts to run those containers. Kontena's scheduler has been influenced by technologies such as [Docker Swarm](https://docs.docker.com/swarm/) and [Kubernetes](http://kubernetes.io/). While the Kontena scheduler shares many similarities and concepts with these container orchestrators, Kontena's scheduler is designed to:
+With Kontena, the user starts by telling the Kontena system to run a Service that is composed of one or more containers. The Kontena system will then automatically choose the host or hosts to run those containers. Kontena's scheduler has been influenced by technologies such as [Docker Swarm](https://docs.docker.com/swarm/) and [Kubernetes](http://kubernetes.io/). While the Kontena scheduler shares many similarities and concepts with these container orchestrators, Kontena's scheduler is designed to:
 
 * Work with Services instead of plain containers
 * Support both stateless and stateful applications
