@@ -4,9 +4,9 @@ title: CentOS
 
 # Running Kontena on CentOS (and Red Hat Enterprise Linux)
 
-- [Prerequisites](CentOS#prerequisites)
-- [Installing Kontena Master](CentOS#installing-kontena-master)
-- [Installing Kontena Nodes](CentOS#installing-kontena-nodes)
+- [Prerequisites](centos#prerequisites)
+- [Installing Kontena Master](centos#installing-kontena-master)
+- [Installing Kontena Nodes](centos#installing-kontena-nodes)
 
 ## Prerequisites
 
