@@ -19,4 +19,4 @@ Kontena offers a range of functionality for configuring and managing containeriz
 * Configure [Health Checks](health-check.md) to help monitor your application and automate the resolution of incidents such as the downtime of a container.
 * Manage the way Kontena handles logins by configuring [Authentication](authentication.md).
 * Configure [Kontena Vault](vault.md) in order to store passwords or access tokens that your application requires to access APIs or databases.
-* Disable [Telemetry](telemetry.md), the anonymous usage tracking that Kontena performs to help the project's open source developers, if desired.
+* If desired, disable [Telemetry](telemetry.md), the anonymous usage tracking that Kontena performs to help the project's open source developers.
