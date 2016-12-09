@@ -8,6 +8,7 @@ toc_order: 1
 Kontena offers a range of functionality for configuring and managing containerized workloads. When using Kontena, you can do the following:
 
 * Configure [Load Balancing](loadbalancer.md) and specify [Deploy strategies](deploy.md) in order to set priorities within your application.
+* Set up a [high availablity Kontena Master](high-avail.md).
 * Set up a cluster of Kontena Nodes by establishing a [Grid](grids.md).
 * Create a private image registry for hosting container images using Kontenta's built-in [Image Registry](image-registry.md).
 * Set up [Services](services.md), which are composed of multiple containers based on the same image file. A Service definition lets you define the parameters for one of the microservices that is used to compose your application. Kontena allows you to reuse Services via the [Stacks](stacks.md) feature.
