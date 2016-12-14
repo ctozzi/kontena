@@ -3,6 +3,8 @@ title: Technology
 toc_order: 3
 ---
 
+![Technology Stack](https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/Technology%20Stack.png)
+
 # Technology
 
 Kontena is built using the following components:
@@ -53,5 +55,3 @@ Kontena uses MongoDB to provide persistent storage for the Master daemon. We cho
 > cAdvisor (Container Advisor) is a container monitoring tool.
 
 cAdvisor provides container users with an understanding of the resource usage and performance characteristics of their running containers.
-
-![Technology Stack](https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/Technology%20Stack.png)
