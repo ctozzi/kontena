@@ -201,3 +201,5 @@ Each of the two services would have a pair of service names resolving to multipl
 
 The `testapp-webservice` service would be configured with the `testapp-db` DNS name, connecting to the running database service instance.
 Within the Grid, the `testapp-webservice` name could be used to round-robin requests across the two `webservice` instances.
+
+![Networking in Kontena](https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/System%20Architecture.png)
