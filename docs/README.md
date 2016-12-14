@@ -19,7 +19,7 @@ Kontena's key features include:
 
 Kontena is administered via the Kontena command line interface, **Kontena CLI**. At the moment, there is no graphical UI for Kontena.
 
-[[https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/System%20Overview.png?raw=true]]
+![Kontena Overview](https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/System%20Overview.png?raw=true)
 
 ## Learn More
 
