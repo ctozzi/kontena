@@ -48,3 +48,5 @@ A Service is composed of containers based on the same image file. In addition to
 Kontena's built-in support for Service-level statistics and logging is very useful since it is often difficult to get an overview and understand a complex system by just inspecting individual containers. In addition, Kontena's Services make all statistics and log data persistent. This is essential due to the fact that individual containers do not store this information persistently.
 
 As with any container orchestration technology, Kontena supports the creation of stateless Services: web servers, REST API servers and in-memory object caches. In addition, Kontena has support for stateful Services such as traditional and distributed databases and batch and streaming data processing. The support for stateful Services is one of the key differentiators between Kontena and other container orchestration technologies.
+
+![System Architecture](https://github.com/ctozzi/kontena/blob/master/docs/core-concepts/System%20Architecture.png)
